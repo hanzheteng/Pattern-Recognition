@@ -1,4 +1,4 @@
-% Fisher's Criterion & K-Nearest Neighbor algorithm on Sonar Data Set
+% Fisher's Criterion & K-Nearest Neighbors algorithm on Sonar Data Set
 % Script : sonar_FisherKNN.m
 % 
 % The description of Sonar Data Set :
@@ -12,7 +12,7 @@ clear variables
 load sonardata.mat 
 K = 13; % 208 cases are divided randomly into 13 disjoint sets
 [sonartrain,sonartest] = alg_CrossValidation(sonardata,K);
-CorrectRate = zeros(1,K); 
+Accuracy = zeros(1,K); 
 
 for time=1:K
     % get training data
@@ -41,9 +41,9 @@ for time=1:K
     % KNN algorithm
     testpredict = alg_KNN(train0,sonartrain(:,61,time),test0,K);
     
-    % compute correct rate
-    CorrectRate(time) = alg_CorrectRate(testpredict,testlabel);
+    % compute accuracy
+    Accuracy(time) = alg_Accuracy(testpredict,testlabel);
 end
 
-CorrectRate  %#ok<NOPTS>
-MeanCorrect = mean(CorrectRate)  %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
+MeanAccuracy = mean(Accuracy)  %#ok<NOPTS>

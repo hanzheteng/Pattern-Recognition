@@ -13,7 +13,7 @@ clear variables
 load irisdata.mat
 K = 5;   % K-fold cross-validation
 [iristrain,iristest] = alg_CrossValidation(irisdata,K);
-CorrectRate = zeros(1,K);
+Accuracy = zeros(1,K);
 
 for time=1:K
     % get training data
@@ -55,11 +55,11 @@ for time=1:K
             testpredict(i) = 3;
         end
     end
-    CorrectRate(time) = alg_CorrectRate(testpredict,testlabel);
+    Accuracy(time) = alg_Accuracy(testpredict,testlabel);
 end
 
-CorrectRate  %#ok<NOPTS>
-MeanCorrect = mean(CorrectRate) %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
+MeanAccuracy = mean(Accuracy) %#ok<NOPTS>
 
 
 %% plot data - Fisher's Criterion on Iris Data Set
@@ -83,10 +83,10 @@ xlabel('Attributes')
 ylabel('Samples')
 
 figure(2)
-bar(CorrectRate)
+bar(Accuracy)
 title('Fisher''s Criterion on Iris Data Set')
 xlabel([num2str(K) '-fold cross-validation'])
-ylabel('Correct Rates')
+ylabel('Accuracy')
 
 figure(3)
 subplot(3,1,1)

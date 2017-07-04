@@ -12,7 +12,7 @@ clear variables
 load sonardata.mat 
 K = 13; % 208 cases are divided randomly into 13 disjoint sets
 [sonartrain,sonartest] = alg_CrossValidation(sonardata,K);
-CorrectRate = zeros(1,K); 
+Accuracy = zeros(1,K); 
 
 for time=1:K
     % get training data
@@ -42,11 +42,11 @@ for time=1:K
             testpredict(i) = 2;
         end
     end
-    CorrectRate(time) = alg_CorrectRate(testpredict,testlabel);
+    Accuracy(time) = alg_Accuracy(testpredict,testlabel);
 end
 
-CorrectRate  %#ok<NOPTS>
-MeanCorrect = mean(CorrectRate)  %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
+MeanAccuracy = mean(Accuracy)  %#ok<NOPTS>
 
 
 %% plot data - Fisher's Criterion on Sonar Data Set
@@ -66,10 +66,10 @@ xlabel('Attributes')
 ylabel('Samples')
 
 figure(2)
-bar(CorrectRate)
+bar(Accuracy)
 title('Fisher''s Criterion on Sonar Data Set')
 xlabel([num2str(K) '-fold cross-validation'])
-ylabel('Correct Rates')
+ylabel('Accuracy')
 
 figure(3)
 subplot(2,1,1)

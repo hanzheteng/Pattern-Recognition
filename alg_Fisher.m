@@ -34,8 +34,8 @@ end
 Sw = S1+S2;
 
 % compute the between-class scatter matrix
-% Acturally Sb is not used in the following steps.
 % Sb = (m1-m2)'*(m1-m2);
+% Acturally Sb is not used in the following steps.
 
 % compute the optimal eigenvector W and the threshold W0
 W = (m1-m2)/Sw;

@@ -1,4 +1,4 @@
-% K-Nearest Neighbor algorithm on Iris Data Set
+% K-Nearest Neighbors algorithm on Iris Data Set
 % Script : iris_KNN.m 
 % 
 % The description of Iris Data Set :
@@ -11,7 +11,7 @@ load irisdata.mat
 N = 5; % N-fold cross-validation
 K = 5; % K nearest neighbors
 [iristrain,iristest] = alg_CrossValidation(irisdata,N);
-CorrectRate = zeros(1,N);
+Accuracy = zeros(1,N);
 
 for time=1:N
     % get training and test data
@@ -23,14 +23,14 @@ for time=1:N
     % KNN algorithm
     testpredict = alg_KNN(train,trainlabel,test,K);
     
-    % compute correct rate
-    CorrectRate(time) = alg_CorrectRate(testpredict,testlabel);
+    % compute accuracy
+    Accuracy(time) = alg_Accuracy(testpredict,testlabel);
 end
 
-CorrectRate  %#ok<NOPTS>
-MeanCorrect = mean(CorrectRate)  %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
+MeanAccuracy = mean(Accuracy)  %#ok<NOPTS>
 
-%% plot data - K-Nearest Neighbor algorithm on Iris Data Set
+%% plot data - K-Nearest Neighbors algorithm on Iris Data Set
 % data comes from the Nth validation
 figure(1)
 mesh(irisdata)
@@ -40,7 +40,7 @@ xlabel('Attributes')
 ylabel('Samples')
 
 figure(2)
-bar(CorrectRate)
-title('K-Nearest Neighbor algorithm on Iris Data Set')
+bar(Accuracy)
+title('K-Nearest Neighbors algorithm on Iris Data Set')
 xlabel([num2str(N) '-fold cross-validation'])
-ylabel('Correct Rates')
+ylabel('Accuracy')

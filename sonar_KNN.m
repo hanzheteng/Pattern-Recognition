@@ -1,4 +1,4 @@
-% K-Nearest Neighbor algorithm on Sonar Data Set
+% K-Nearest Neighbors algorithm on Sonar Data Set
 % Script : sonar_KNN.m 
 % 
 % The description of Sonar Data Set :
@@ -13,7 +13,7 @@ load sonardata.mat
 N = 13; % N-fold cross-validation
 K = 5; % K nearest neighbors
 [sonartrain,sonartest] = alg_CrossValidation(sonardata,N);
-CorrectRate = zeros(1,N);
+Accuracy = zeros(1,N);
 
 for time=1:N
     % get training and test data
@@ -25,14 +25,14 @@ for time=1:N
     % KNN algorithm
     testpredict = alg_KNN(train,trainlabel,test,K);
     
-    % compute correct rate
-    CorrectRate(time) = alg_CorrectRate(testpredict,testlabel);
+    % compute accuracy
+    Accuracy(time) = alg_Accuracy(testpredict,testlabel);
 end
 
-CorrectRate  %#ok<NOPTS>
-MeanCorrect = mean(CorrectRate)  %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
+MeanAccuracy = mean(Accuracy)  %#ok<NOPTS>
 
-%% plot data - K-Nearest Neighbor algorithm on Sonar Data Set
+%% plot data - K-Nearest Neighbors algorithm on Sonar Data Set
 % data comes from the Nth validation
 figure(1)
 mesh(sonardata(:,1:60))
@@ -42,7 +42,7 @@ xlabel('Attributes')
 ylabel('Samples')
 
 figure(2)
-bar(CorrectRate)
-title('K-Nearest Neighbor algorithm on Sonar Data Set')
+bar(Accuracy)
+title('K-Nearest Neighbors algorithm on Sonar Data Set')
 xlabel([num2str(N) '-fold cross-validation'])
-ylabel('Correct Rates')
+ylabel('Accuracy')

@@ -1,4 +1,4 @@
-% K-Nearest Neighbor algorithm on USPS Data Set
+% K-Nearest Neighbors algorithm on USPS Data Set
 % Script : usps_KNN.m
 % 
 % The description of USPS Data Set : 
@@ -10,7 +10,7 @@
 
 clear variables
 load uspsdata.mat
-CorrectRate = zeros(1,10);
+Accuracy = zeros(1,10);
 RunningTime = zeros(1,10);  % each time needs several minutes
 
 % assign different number to K and see the correct rate
@@ -26,29 +26,28 @@ for K=1:10  % the number of neighbors
     % KNN algorithm
     testpredict = alg_KNN(train,trainlabel,test,K);
     
-    % compute correct rate
-    CorrectRate(K) = alg_CorrectRate(testpredict,testlabel);
+    % compute accuracy
+    Accuracy(K) = alg_Accuracy(testpredict,testlabel);
     RunningTime(K) = toc;
 end
 
-CorrectRate  %#ok<NOPTS>
+Accuracy  %#ok<NOPTS>
 RunningTime  %#ok<NOPTS> 
-if all(CorrectRate)==1
-    MeanCorrect = mean(CorrectRate)  %#ok<NOPTS>
+if all(Accuracy)==1
+    MeanAccuracy = mean(Accuracy)  %#ok<NOPTS>
     TotalTime = sum(RunningTime)  %#ok<NOPTS>
 end
 
-
-%% plot data - K-Nearest Neighbor algorithm on USPS Data Set
+%% plot data - K-Nearest Neighbors algorithm on USPS Data Set
 figure(1)
 usps_imshow(-uspstest(:,2:257),30,80);
 
 figure(2)
-bar(CorrectRate)
+bar(Accuracy)
 axis([1 10 0.9 1])
 title('K-Nearest Neighbor algorithm on USPS Data Set')
 xlabel('Parameter K in KNN algorithm')
-ylabel('Correct Rates')
+ylabel('Accuracy')
 
 figure(3)
 bar(RunningTime)

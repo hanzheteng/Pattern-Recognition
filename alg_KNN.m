@@ -1,5 +1,5 @@
 function test_predict = alg_KNN(train,train_label,test,K)
-%alg_KNN   K-Nearest Neighbor Algorithm
+%alg_KNN   K-Nearest Neighbors Algorithm
 %   
 %   TEST_PREDICT = alg_KNN(TRAIN,TRAIN_LABEL,TEST,K)
 %   returns a column vector containing labels.

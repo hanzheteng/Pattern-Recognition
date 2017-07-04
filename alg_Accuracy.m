@@ -1,7 +1,7 @@
-function correct = alg_CorrectRate(predict,label)
-%alg_CorrectRate computes classification correct rate
+function accuracy = alg_Accuracy(predict,label)
+%alg_Accuracy computes classification accuracy
 %   
-%   CORRECT = alg_CorrectRate(PREDICT,LABEL)
+%   ACCURACY = alg_Accuracy(PREDICT,LABEL)
 %   returns a value of correct rate.
 %   
 %   PREDICT and LABEL must be a column vector with the same number of rows.
@@ -18,13 +18,13 @@ end
 if labelcol~=1
     error('LABEL must be a column vector.');
 end
-% compute correct rate
+% compute accuracy
 count = 0;
 for i=1:predictrow
     if predict(i,1)==label(i,1);
         count = count+1;
     end
 end
-correct = count/predictrow;
+accuracy = count/predictrow;
 
-end  % End of function alg_CorrectRate
+end  % End of function alg_Accuracy
