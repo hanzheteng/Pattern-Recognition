@@ -3,7 +3,6 @@ LDA, KNN, GA, K-means on Iris, Sonar and USPS datasets.
 
 ## Data Sets
 ### URL Sources
-*github do not support ftp link yet*
 - [Iris](http://archive.ics.uci.edu/ml/datasets/Iris)
 - [Sonar] (ftp://ftp.ics.uci.edu/pub/machine-learning-databases/undocumented/connectionist-bench/sonar/)
 - [abalone] (ftp://ftp.ics.uci.edu/pub/machine-learning-databases/abalone/)
@@ -13,6 +12,8 @@ LDA, KNN, GA, K-means on Iris, Sonar and USPS datasets.
 - [USPS](http://www-i6.informatik.rwth-aachen.de/~keysers/usps.html) :  postal code; the United States Postal Service datasets
 - [Yale Face Database](http://vision.ucsd.edu/content/yale-face-database)
 - [Extended Yale Face Database B](http://vision.ucsd.edu/~leekc/ExtYaleDatabase/ExtYaleB.html)
+
+*github do not support ftp link yet*
 
 ### Iris Plants Database
 #### Introduction
@@ -54,7 +55,7 @@ is a rock and "M" if it is a mine (metal cylinder).  The numbers in the
 labels are in increasing order of aspect angle, but they do not encode the
 angle directly.
 
-### USPS
+### USPS Dataset
 The dataset consists of a training set (usps_train.jf, 1.4M) with **7291 images** and a test set (usps_test.jf, 390k) with **2007 images**.
 The ".jf" format is an ASCII data file format we use because of easy portability (although the files are somewhat large) it contains:
 
