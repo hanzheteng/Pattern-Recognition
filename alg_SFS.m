@@ -1,6 +1,9 @@
 function [X,Fits] = alg_SFS(data,label)
-%alg_SFS   Sequential Forward Selection 
-%   
+%alg_SFS   Sequential Forward Selection
+%
+%   [X,FITS] = alg_SFS(DATA,LABEL)
+%   returns a vector and its fitness.
+%
 %   SFS for feature selection
 %   November 21, 2016, by HanzheTeng
 

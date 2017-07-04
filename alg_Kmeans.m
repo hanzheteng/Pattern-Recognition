@@ -1,9 +1,9 @@
 function KLabel=alg_Kmeans(data,K)
 %alg_Kmeans   K-means Clustering Algorithm
-%   
-%   KLabel=alg_Kmeans(data,K)
+%
+%   KLABEL = alg_Kmeans(DATA,K)
 %   returns a column vector containing labels.
-%   
+%
 %   By default, kmeans uses squared Euclidean distances.
 %   December 2, 2016, by HanzheTeng
 
@@ -17,7 +17,7 @@ while any(any(center_last~=center))  % if any center does not equal, go on
         distance = zeros(1,K);
         for n=1:K
             % compute the 2-norm or Euclidean distance
-            distance(n) = norm(data(i,:)-data(n,:)); 
+            distance(n) = norm(data(i,:)-data(n,:));
         end
         KLabel(i) = find(distance==min(distance));
     end
@@ -25,6 +25,3 @@ while any(any(center_last~=center))  % if any center does not equal, go on
         center(n,:) = mean(data(KLabel==n,:));
     end
 end
-        
-    
-    

@@ -4,9 +4,9 @@ LDA, KNN, GA, K-means on Iris, Sonar and USPS datasets.
 ## Data Sets
 ### URL Sources
 - [Iris](http://archive.ics.uci.edu/ml/datasets/Iris)
-- [Sonar](ftp://ftp.ics.uci.edu/pub/machine-learning-databases/undocumented/connectionist-bench/sonar/)
-- [abalone](ftp://ftp.ics.uci.edu/pub/machine-learning-databases/abalone/)
-- [wine](ftp://ftp.ics.uci.edu/pub/machine-learning-databases/wine/)
+- [Sonar](http://ftp.ics.uci.edu/pub/machine-learning-databases/undocumented/connectionist-bench/sonar/)
+- [abalone](http://ftp.ics.uci.edu/pub/machine-learning-databases/abalone/)
+- [wine](http://ftp.ics.uci.edu/pub/machine-learning-databases/wine/)
 - [mnist](http://yann.lecun.com/exdb/mnist/) : handwritten digits by Yann LeCun
 - [CIFAR-10](http://www.cs.toronto.edu/~kriz/cifar.html) : in 10 classes, with 6000 images per class
 - [USPS](http://www-i6.informatik.rwth-aachen.de/~keysers/usps.html) :  postal code; the United States Postal Service datasets
@@ -74,79 +74,85 @@ But this dataset **scaled to [-1:1]** instead of [0:2].
 
 ## Function List
 ### alg_Accuracy
-%alg_Accuracy computes classification accuracy
-%   
-%   ACCURACY = alg_Accuracy(PREDICT,LABEL)
-%   returns a value of correct rate.
-%   
-%   PREDICT and LABEL must be a column vector with the same number of rows.
-%   November 2, 2016, by HanzheTeng
+alg_Accuracy computes classification accuracy  
+
+  `ACCURACY = alg_Accuracy(PREDICT,LABEL)`
+   returns the value of accuracy.  
+
+   PREDICT and LABEL must be a column vector with the same number of rows.
+   November 2, 2016, by HanzheTeng
 
 ### alg_CrossValidation
-%alg_CrossValidation generates K-fold cross-validation data
-%   
-%   [TRAIN,TEST] = alg_CrossValidation(DATA,K)
-%   returns matrices with K pages for training and testing in a K-fold
-%   cross-validation.
-%   
-%   The row number of DATA must be divisible by K.
-%   This algorithm extracts samples from DATA every K rows.
-%   You can use one page of TRAIN/TEST for each validation.
-%   Rows represent samples.
-%   Columns represent the dimensions of samples.
-%   November 2, 2016, by HanzheTeng
+alg_CrossValidation generates K-fold cross-validation data  
+
+  `[TRAIN,TEST] = alg_CrossValidation(DATA,K)`
+   returns matrices with K pages for training and testing in a K-fold  
+   cross-validation.  
+
+   The row number of DATA must be divisible by K.  
+   This algorithm extracts samples from DATA every K rows.  
+   You can use one page of TRAIN/TEST for each validation.  
+   Rows represent samples.  
+   Columns represent the dimensions of samples.  
+   November 2, 2016, by HanzheTeng
 
 ### alg_Fisher
-%alg_Fisher   [Linear Discriminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) based on Fisher's Criterion
-%   
-%   [W,W0] = alg_Fisher(CLASS1,CLASS2)
-%   returns an eigenvector W along the optimal projective direction
-%   and a value W0 as the threshold.
-%   
-%   CLASS1 and CLASS2 must be matrices with the same number of columns.
-%   Rows represent samples.
-%   Columns represent the dimensions of samples.
-%   November 2, 2016, by HanzheTeng
+alg_Fisher   [Linear Discriminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) based on Fisher's Criterion  
+
+   `[W,W0] = alg_Fisher(CLASS1,CLASS2)`  
+   returns an eigenvector W along the optimal projective direction  
+   and a value W0 as the threshold.  
+
+   CLASS1 and CLASS2 must be matrices with the same number of columns.  
+   Rows represent samples.  
+   Columns represent the dimensions of samples.  
+   November 2, 2016, by HanzheTeng  
 
 ### alg_KNN
-%alg_KNN   [K-Nearest Neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) Algorithm
-%   
-%   TEST_PREDICT = alg_KNN(TRAIN,TRAIN_LABEL,TEST,K)
-%   returns a column vector containing labels.
-%   
-%   K is the number of the nearest neighbors.
-%   TRAIN and TRAIN_LABEL must have the same number of rows.
-%   TRAIN and TEST must be matrices with the same number of columns.
-%   TRAIN_LABEL must have only one column.
-%   Rows represent samples.
-%   Columns represent the dimensions of samples.
-%   This algorithm is based on Euclidean distance.
-%   November 8, 2016, by HanzheTeng
+alg_KNN   [K-Nearest Neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) Algorithm  
+
+   `TEST_PREDICT = alg_KNN(TRAIN,TRAIN_LABEL,TEST,K)`  
+   returns a column vector containing labels.  
+
+   K is the number of the nearest neighbors.  
+   TRAIN and TRAIN_LABEL must have the same number of rows.  
+   TRAIN and TEST must be matrices with the same number of columns.  
+   TRAIN_LABEL must have only one column.  
+   Rows represent samples.  
+   Columns represent the dimensions of samples.  
+   This algorithm is based on Euclidean distance.  
+   November 8, 2016, by HanzheTeng  
 
 ### alg_Kmeans
-%alg_Kmeans   [K-means Clustering](https://en.wikipedia.org/wiki/K-means_clustering) Algorithm
-%   
-%   KLabel=alg_Kmeans(data,K)
-%   returns a column vector containing labels.
-%   
-%   By default, kmeans uses squared Euclidean distances.
-%   December 2, 2016, by HanzheTeng
+alg_Kmeans   [K-means Clustering](https://en.wikipedia.org/wiki/K-means_clustering) Algorithm  
+
+   `KLABEL = alg_Kmeans(DATA,K)`  
+   returns a column vector containing labels.  
+
+   By default, kmeans uses squared Euclidean distances.  
+   December 2, 2016, by HanzheTeng  
 
 ### alg_GeneticAlg
-%alg_GeneticAlg   [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm)
-%   
-%   GA for feature selection
-%   November 21, 2016, by HanzheTeng
+alg_GeneticAlg   [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm)  
+
+  `BESTGENE = alg_GeneticAlg(DATA,LABEL,GEN,POPU,Pc,Pm)`  
+   returns the best gene vector.  
+
+   GA for feature selection.  
+   November 21, 2016, by HanzheTeng  
 
 ### alg_SFS
-%alg_SFS   Sequential Forward Selection
-%   
-%   SFS for feature selection
-%   November 21, 2016, by HanzheTeng
+alg_SFS   Sequential Forward Selection  
+
+   `[X,FITS] = alg_SFS(DATA,LABEL)`  
+   returns a vector and its fitness.  
+
+   SFS for feature selection.  
+   November 21, 2016, by HanzheTeng  
 
 ### usps_imshow
-%usps_imshow shows the images of uspadata in x rows y columns
-%   
-%   usps_imshow(USPSDATA,X,Y)
-%   
-%   November 10, 2016, by HanzheTeng
+usps_imshow shows the images of uspadata in x rows y columns  
+
+   `usps_imshow(USPSDATA,X,Y)`
+
+   November 10, 2016, by HanzheTeng  

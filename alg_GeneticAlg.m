@@ -1,6 +1,9 @@
 function BestGene = alg_GeneticAlg(data,label,Gen,Popu,Pc,Pm)
 %alg_GeneticAlg   Genetic Algorithm
-%   
+%
+%   BESTGENE = alg_GeneticAlg(DATA,LABEL,GEN,POPU,Pc,Pm)
+%   returns the best gene vector.
+%
 %   GA for feature selection
 %   November 21, 2016, by HanzheTeng
 
@@ -29,7 +32,7 @@ for i=1:Gen
     for j=1:Popu
         Fits(j) = Fitness(data,label,test,testlabel,Genes(j,:));
     end
-    
+
     % save the best gene
     BestFitNow = max(Fits);
     if BestFitNow > BestFit
@@ -37,17 +40,17 @@ for i=1:Gen
         BestGene = Genes(GeneRow,:);
         BestFit = BestFitNow;
     end
-    
+
     % Selection Operator based on Roulette
     Genes = Selection(Genes,Fits,Popu);
-    
+
     % CrossOver Operator
     for j=1:Popu
         row1 = randi([1 Popu]);
         row2 = randi([1 Popu]);
         [Genes(row1,:),Genes(row2,:)] = CrossOver(Genes(row1,:),Genes(row2,:),Pc);
     end
-    
+
     % Mutation Operator
     for j=1:Popu
         Genes(j,:) = Mutation(Genes(j,:),Pm);
@@ -101,4 +104,3 @@ function accuracy = Fitness(train,trainlabel,test,testlabel,Gene)
     testpredict = alg_KNN(train(:,Gene),trainlabel,test(:,Gene),3);
     accuracy = alg_Accuracy(testpredict,testlabel);
 end
-

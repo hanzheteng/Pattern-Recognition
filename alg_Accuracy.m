@@ -1,9 +1,9 @@
 function accuracy = alg_Accuracy(predict,label)
 %alg_Accuracy computes classification accuracy
-%   
+%
 %   ACCURACY = alg_Accuracy(PREDICT,LABEL)
-%   returns a value of correct rate.
-%   
+%   returns the value of accuracy.
+%
 %   PREDICT and LABEL must be a column vector with the same number of rows.
 %   November 2, 2016, by HanzheTeng
 
