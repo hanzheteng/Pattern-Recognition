@@ -76,7 +76,7 @@ But this dataset **scaled to [-1:1]** instead of [0:2].
 ### alg_Accuracy
 alg_Accuracy computes classification accuracy  
 
-  `ACCURACY = alg_Accuracy(PREDICT,LABEL)`
+  `ACCURACY = alg_Accuracy(PREDICT,LABEL)`  
    returns the value of accuracy.  
 
    PREDICT and LABEL must be a column vector with the same number of rows.
@@ -85,7 +85,7 @@ alg_Accuracy computes classification accuracy
 ### alg_CrossValidation
 alg_CrossValidation generates K-fold cross-validation data  
 
-  `[TRAIN,TEST] = alg_CrossValidation(DATA,K)`
+  `[TRAIN,TEST] = alg_CrossValidation(DATA,K)`  
    returns matrices with K pages for training and testing in a K-fold  
    cross-validation.  
 
